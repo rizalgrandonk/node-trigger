@@ -2,7 +2,7 @@
 FROM node:24-alpine
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /DATA/AppData/node-trigger/data
 
 # Copy package.json and package-lock.json (if available)
 COPY package*.json ./
