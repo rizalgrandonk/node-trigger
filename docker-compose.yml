@@ -1,8 +1,60 @@
-version: '3.8'
+name: node-trigger
 services:
-  web:
-    build: .
+  node-trigger:
+    command:
+      - node
+      - app.js
+    container_name: node-trigger
+    environment:
+      - STATE=DISABLE
+    hostname: node-trigger
+    image: nodeapp:latest
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nodejs.png
     ports:
-      - "8687:3000" # Map host port 80 to container port 8080 (where the app listens based on .env)
-    env_file:
-      - ./.env # Load environment variables from the .env file
+      - target: 3000
+        published: "8687"
+        protocol: tcp
+    restart: unless-stopped
+    x-casaos:
+      envs:
+        - container: STATE
+          description:
+            en_us: ""
+      image: ""
+      ports:
+        - container: "3000"
+          description:
+            en_us: ""
+    volumes: []
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  architectures:
+    - amd64
+  author: CasaOS User
+  category: unknown
+  description:
+    en_us: ""
+  developer: unknown
+  hostname: ""
+  icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/nodejs.png
+  image: null
+  index: /
+  is_uncontrolled: false
+  main: node-trigger
+  port_map: "8687"
+  scheme: http
+  store_app_id: node-trigger # Choose a unique name
+  tagline:
+    en_us: This is a compose app converted from a legacy app (CasaOS v0.4.3 or
+      earlier)
+  thumbnail: ""
+  tips:
+    custom: This is a compose app converted from a legacy app (CasaOS v0.4.3 or
+      earlier)
+  title:
+    custom: node-trigger
+    en_us: node-trigger
