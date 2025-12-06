@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8687:3000" # Map host port 80 to container port 8080 (where the app listens based on .env)
+    env_file:
+      - ./.env # Load environment variables from the .env file
