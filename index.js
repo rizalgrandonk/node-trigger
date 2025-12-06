@@ -23,6 +23,10 @@ app.get("/log", (req, res) => {
     return res.status(200).json({ message: "Success!" });
 });
 
+app.get("/check", (req, res) => {
+    return res.status(200).json({ message: "OK!" });
+});
+
 app.listen(process.env.PORT ?? 3000, () => {
     console.log("Listen on port 3000", {STATE: state});
 });
