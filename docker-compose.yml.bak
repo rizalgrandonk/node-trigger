@@ -13,7 +13,7 @@ services:
                     memory: "10315890688"
         environment:
             PORT: "3000"
-            STATE: DISABLE
+            STATE: ENABLE
         hostname: node-trigger
         image: node-trigger:latest
         networks:
